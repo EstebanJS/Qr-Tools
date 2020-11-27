@@ -1,28 +1,36 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app id="inspire">
+    <v-navigation-drawer v-model="drawer" app>
+      <!--  -->
+    </v-navigation-drawer>
+
+    <v-app-bar app>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+
+      <v-toolbar-title
+        ><v-list-item-avatar>
+          <v-icon class="purple lighten-1" dark>
+            mdi-data-matrix-scan
+          </v-icon> </v-list-item-avatar
+        >Qr Tools</v-toolbar-title
+      >
+    </v-app-bar>
+
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import { mapActions } from "vuex";
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  data: () => ({ drawer: null }),
+  methods: {
+    ...mapActions(["ActIntialiceListQr"]),
+  },
+  created() {
+    this.ActIntialiceListQr();
+  },
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
