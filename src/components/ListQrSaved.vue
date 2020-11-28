@@ -6,8 +6,9 @@
           mdi-qrcode
         </v-icon>
       </v-list-item-avatar>
-      Qr's guardados
+      Qr's saved
     </v-card-title>
+    <v-divider class="mx-4"></v-divider>
     <v-card-text>
       <v-list two-line>
         <ItemListQrSavedVue

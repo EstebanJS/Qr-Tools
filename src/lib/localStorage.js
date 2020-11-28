@@ -1,5 +1,6 @@
 const data = {
-    listQr: []
+    listQr: [],
+    listQrCreate:[]
 }
 
 export const initialStore = () => {
@@ -15,7 +16,7 @@ export const addItemQr = (item) => {
     localStorage.setItem('QrStore', JSON.stringify(storage))
 }
 
-export const removeItem = (id) => {
+export const removeItemQr= (id) => {
     initialStore()
     const storage = JSON.parse(localStorage.getItem('QrStore'))
     storage.listQr = storage.listQr.filter(item => item.id !== id)
@@ -26,4 +27,24 @@ export const getListQr = () => {
     initialStore()
     const storage = JSON.parse(localStorage.getItem('QrStore'))
     return storage.listQr
+}
+
+export const addItemQrCreate = (item) => {
+    initialStore()
+    const storage = JSON.parse(localStorage.getItem('QrStore'))
+    storage.listQrCreate.push(item)
+    localStorage.setItem('QrStore', JSON.stringify(storage))
+}
+
+export const removeItemQrCreate = (id) => {
+    initialStore()
+    const storage = JSON.parse(localStorage.getItem('QrStore'))
+    storage.listQrCreate = storage.listQrCreate.filter(item => item.id !== id)
+    localStorage.setItem('QrStore', JSON.stringify(storage))
+}
+
+export const getListQrCreate = () => {
+    initialStore()
+    const storage = JSON.parse(localStorage.getItem('QrStore'))
+    return storage.listQrCreate
 }

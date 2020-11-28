@@ -2,7 +2,7 @@
   <v-dialog persistent v-model="open" max-width="500px">
     <v-card>
       <v-card-title>
-        <span>Resultado</span>
+        <span>Result</span>
         <v-spacer></v-spacer>
         <v-btn color="black" text @click="open = false">
           <v-icon dark>
@@ -17,7 +17,7 @@
               {{ decode }}
             </v-col>
             <v-col>
-              <span>¿Desea guardar el resultado?</span>
+              <span>Do you wanna save the result?</span>
               <v-form>
                 <v-text-field
                   v-model="title"
@@ -31,7 +31,7 @@
       </v-card-text>
       <v-card-actions>
         <v-btn color="purple" class="white--text" @click="save">
-          Guardar
+          SAVE
         </v-btn>
         <v-snackbar v-model="snackbar">
           <v-icon dark>
@@ -65,7 +65,7 @@ export default {
     return {
       snackbar: false,
       open: false,
-      title: "Agregue un titulo",
+      title: "Add title",
       decode: "",
     };
   },
