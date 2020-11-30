@@ -53,7 +53,7 @@ export default {
       if (this.save) {
         const data = {
           title: this.title,
-          Content: this.Content,
+          content: this.Content,
           height: 350,
           width: 350,
         };

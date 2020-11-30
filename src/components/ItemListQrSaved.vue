@@ -1,5 +1,5 @@
 <template>
-  <v-list-item @click="dialog=true">
+  <v-list-item @click="dialog = true">
     <v-list-item-content>
       <v-list-item-title v-text="title"></v-list-item-title>
 
@@ -16,8 +16,11 @@
         <v-card-title class="headline">
           {{ title }}
         </v-card-title>
-        <v-card-text>
+        <v-card-text v-if="width === undefined">
           {{ content }}
+        </v-card-text>
+        <v-card-text v-if="width !== undefined">
+          <div id="qr-dialog"></div>
         </v-card-text>
       </v-card>
     </v-dialog>
@@ -25,6 +28,7 @@
 </template>
 
 <script>
+import QRCode from "easyqrcodejs";
 import { mapActions } from "vuex";
 export default {
   name: "ItemListQrSaved",
@@ -41,11 +45,31 @@ export default {
       type: String,
       required: true,
     },
+    height: {
+      type: Number,
+      required: false,
+    },
+    width: {
+      type: Number,
+      required: false,
+    },
   },
   data() {
     return {
       dialog: false,
     };
+  },
+  watch: {
+    dialog(newValue) {
+      if (newValue) {
+        console.log('QR');
+        new QRCode(document.getElementById("qr-dialog"), {
+          text: this.content,
+          height: 350,
+          width: 350,
+        });
+      }
+    },
   },
   methods: {
     ...mapActions(["ActRemoveItemQr"]),
