@@ -6,7 +6,7 @@
           mdi-qrcode
         </v-icon>
       </v-list-item-avatar>
-      Qr's saved
+      {{title}}
     </v-card-title>
     <v-divider class="mx-4"></v-divider>
     <v-card-text>
@@ -29,6 +29,10 @@ import ItemListQrSavedVue from "./ItemListQrSaved.vue";
 export default {
   name: "listQrSaved",
   props:{
+    title:{
+      type:String,
+      required:true
+    },
     Items:{
       type: Array,
       required:true,

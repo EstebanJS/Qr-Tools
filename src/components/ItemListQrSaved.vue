@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import QRCode from "easyqrcodejs";
 import { mapActions } from "vuex";
 import QrVue from "./Qr.vue";
 export default {
@@ -45,9 +46,29 @@ export default {
       type: String,
       required: true,
     },
+    height: {
+      type: Number,
+      required: false,
+    },
+    width: {
+      type: Number,
+      required: false,
+    },
   },
   data() {
     return {};
+  },
+  watch: {
+    dialog(newValue) {
+      if (newValue) {
+        console.log('QR');
+        new QRCode(document.getElementById("qr-dialog"), {
+          text: this.content,
+          height: 350,
+          width: 350,
+        });
+      }
+    },
   },
   methods: {
     ...mapActions(["ActRemoveItemQr", "ActRemoveItemQrCreate"]),

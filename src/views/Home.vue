@@ -5,7 +5,7 @@
         <qrCodeReaderVue/>
       </v-col>
       <v-col class="mt-1" cols="12" md="6">
-        <ListQrSavedVue :Items="getListQr"/>
+        <ListQrSavedVue title="Qr's saved" :Items="getListQr"/>
       </v-col>
     </v-row>
   </v-container>

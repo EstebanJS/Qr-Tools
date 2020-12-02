@@ -29,7 +29,7 @@
       <v-card-text>
         <v-list flat>
           <v-subheader>Contact</v-subheader>
-          <v-list-item-group v-model="item" color="primary">
+          <v-list-item-group color="primary">
             <v-list-item v-for="(item, i) in social" :key="i">
               <v-list-item-icon>
                 <v-icon v-text="item.icon"></v-icon>

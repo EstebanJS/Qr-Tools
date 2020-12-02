@@ -5,7 +5,7 @@
         <QrGenratorVue />
       </v-col>
       <v-col class="mt-1" cols="12" md="6">
-        <ListQrSavedVue :Items="getListQrCreate" />
+        <ListQrSavedVue title="Qr's created saved" :Items="getListQrCreate" />
       </v-col>
     </v-row>
   </v-container>
@@ -22,7 +22,7 @@ export default {
   },
   computed: {
     ...mapGetters(["getListQrCreate"]),
-  },
+  }
 };
 </script>
 
