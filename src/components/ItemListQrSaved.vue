@@ -9,7 +9,9 @@
     </v-expansion-panel-header>
     <v-expansion-panel-content>
       <v-card>
-        <QrVue :text="content" />
+        <div class="d-flex flex-row justify-center align-center ">
+          <QrVue :text="content" />
+        </div>
         <v-card-actions>
           <v-btn v-on:click="this.delete" icon>
             <v-icon color="red lighten-1">mdi-delete-circle</v-icon>
@@ -61,7 +63,7 @@ export default {
   watch: {
     dialog(newValue) {
       if (newValue) {
-        console.log('QR');
+        console.log("QR");
         new QRCode(document.getElementById("qr-dialog"), {
           text: this.content,
           height: 350,

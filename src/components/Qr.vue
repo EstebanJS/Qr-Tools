@@ -12,8 +12,8 @@ export default {
   mounted() {
     new QRCode(document.getElementById("qr-item"), {
       text: this.text,
-      height: 350,
-      width: 350,
+      height: 275,
+      width: 275,
     });
   },
 };
