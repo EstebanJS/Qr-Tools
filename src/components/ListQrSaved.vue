@@ -10,30 +10,33 @@
     </v-card-title>
     <v-divider class="mx-4"></v-divider>
     <v-card-text>
-      <v-list two-line>
+      <v-expansion-panels>
         <ItemListQrSavedVue
-          v-for="item in getListQr"
+          v-for="item in Items"
           :key="item.id"
           :id="item.id"
           :title="item.title"
           :content="item.content"
+          :type="item.type"
         />
-      </v-list>
+      </v-expansion-panels>
     </v-card-text>
   </v-card>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 import ItemListQrSavedVue from "./ItemListQrSaved.vue";
 export default {
   name: "listQrSaved",
+  props:{
+    Items:{
+      type: Array,
+      required:true,
+    }
+  },
   components: {
     ItemListQrSavedVue,
-  },
-  computed: {
-    ...mapGetters(["getListQr"]),
-  },
+  }
 };
 </script>
 

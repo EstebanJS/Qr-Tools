@@ -43,20 +43,19 @@ import { mapActions } from "vuex";
 export default {
   data: () => ({
     drawer: null,
+    selectedItem:0,
     items: [
       { text: "QR Scan", icon: "mdi-qrcode-scan", path: "/" },
       { text: "QR Generator", icon: "mdi-qrcode-edit", path: "/generator" },
       { text: "About", icon: "mdi-information-outline", path: "/about" },
     ],
   }),
-  computed: {
-    selectedItem() {
-      const path = window.location.pathname;
-      return this.items.findIndex((item) => item.path === path);
-    },
-  },
   methods: {
     ...mapActions(["ActIntialiceListQr","ActIntialiceListQrCreate"]),
+  },
+  updated(){
+    const path = window.location.pathname;
+    this.selectedItem = this.items.findIndex((item) => item.path === path);
   },
   created() {
     this.ActIntialiceListQr();

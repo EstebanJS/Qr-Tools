@@ -52,10 +52,9 @@ export default {
       });
       if (this.save) {
         const data = {
+          type:"Created",
           title: this.title,
-          Content: this.Content,
-          height: 350,
-          width: 350,
+          content: this.Content,
         };
         this.ActAddItemQrCreate(data)
       }

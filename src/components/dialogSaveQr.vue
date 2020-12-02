@@ -86,6 +86,7 @@ export default {
     ...mapActions(["ActAddItemQr"]),
     save() {
       const item = {
+        type:"Reader",
         title: this.title,
         content: this.decode,
       };
